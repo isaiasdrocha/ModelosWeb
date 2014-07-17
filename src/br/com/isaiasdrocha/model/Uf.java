@@ -2,13 +2,34 @@ package br.com.isaiasdrocha.model;
 
 public class Uf {
 
-	private String uf;
+	private Integer codigo;
+	
+	private String sigla;
+	
+	private String nome;
 
-	public String getUf() {
-		return uf;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 }
