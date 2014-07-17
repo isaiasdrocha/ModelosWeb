@@ -26,6 +26,14 @@
 			<version>4.3.5.Final</version>
 		</dependency>
 		
+		<!-- HIBERNATE VALIDATION -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+				
+		
 		<!-- JUNIT -->
 		<dependency>
 			<groupId>junit</groupId>
