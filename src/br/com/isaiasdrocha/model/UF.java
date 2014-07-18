@@ -1,6 +1,9 @@
 package br.com.isaiasdrocha.model;
 
-public class Uf {
+import javax.persistence.Entity;
+
+@Entity
+public class UF {
 
 	private Integer codigo;
 	

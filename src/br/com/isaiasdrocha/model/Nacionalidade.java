@@ -1,5 +1,8 @@
 package br.com.isaiasdrocha.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Nacionalidade {
 	
 	private String nacionalidade;
