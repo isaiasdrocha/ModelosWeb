@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +47,9 @@ public class PessoaController  implements Serializable {
 		//FacesContextUtil.addMessage(Severity.WARN, MessageBundleUtil.getMessage("geral_pesquisa_sem_resultado"), null, true);
 		
 	}
+	
+	//@Transactional(propagation=Propagation.REQUIRED)
+	//@Transactional(propagation=Propagation.support)
 	
 	
 	/*********************************************************/

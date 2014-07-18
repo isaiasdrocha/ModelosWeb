@@ -10,17 +10,14 @@
 	<h:head>
 		<title>Teste de implementaçãoo JSF</title>
 	</h:head>
+
+	<h1>Ajax JSF 2 Demo</h1>
 	
-	<h1><h:outputLabel value="Ajax JSF 2 Demo"/></h1>
-	  
-	<h:form>
-	
-		<h:outputLabel value="Código"/>
-	    <h:inputText id="name" value="#{pessoaController.codigo}"/>
-	
-	    <h:outputLabel value="Nome / Razão Social"/>
-	    <h:inputText value="#{pessoaController.nomeRazao}"/>
-	    
-	  </h:form>
+	<h:form> 
+		Nome: <h:inputText value="#{pessoaController.codigo}"/> 
+		Idade: <h:inputText value="#{pessoaController.nomeRazao}"/> 
+
+		<h:commandButton value="Enviar"/> 
+	</h:form>
 	
 </html>
