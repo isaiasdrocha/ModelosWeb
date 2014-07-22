@@ -13,9 +13,9 @@ import br.com.isaiasdrocha.repository.PessoaRepository;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class PessoaService implements Serializable{
 
-	/**
-	 * 
-	 */
+	/*****************************************************************/
+	/*************************** ATRIBUTOS ***************************/
+	/*****************************************************************/
 	private static final long serialVersionUID = -1309703498898223922L;
 
 	@Autowired
@@ -24,5 +24,5 @@ public class PessoaService implements Serializable{
 	public void teste(){
 		System.out.println(pessoaRepository.voltarTeste());
 	}
-	
+		
 }

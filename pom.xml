@@ -33,6 +33,21 @@
 			<version>1.0.0.GA</version>
 		</dependency>
 		
+		<!-- HIBERNATE CORE -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate</artifactId>
+		    <version>3.5.4-Final</version>
+		    <type>pom</type>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>3.5.4-Final</version>
+		</dependency>
+				
+		
 		<!-- JSF 2.1.19 -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>

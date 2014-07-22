@@ -12,9 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import br.com.isaiasdrocha.enums.EnumTipoPessoa;
 
 @Entity
@@ -41,7 +38,7 @@ public class Pessoa implements Serializable{
 	/********** FOREING KEY **********/
 	/*********************************/
 	@OneToMany
-	@Cascade(CascadeType.DELETE)
+	//@Cascade(CascadeType.DELETE)
 	@JoinTable(	name = "pessoa_endereco",
 				joinColumns = { @JoinColumn(name = "fk_endereco") }, 
 				inverseJoinColumns = { @JoinColumn(name = "id") })
