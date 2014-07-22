@@ -1,10 +1,24 @@
 package br.com.isaiasdrocha.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-public class UF {
+public class UF implements Serializable{
 
+	
+	/*****************************************************************/
+	/*************************** ATRIBUTOS ***************************/
+	/*****************************************************************/
+	private static final long serialVersionUID = 4258359493421303491L;
+
+	@Id
+	@GeneratedValue
+	private long id;
+	
 	private Integer codigo;
 	
 	private String sigla;
@@ -33,6 +47,14 @@ public class UF {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }

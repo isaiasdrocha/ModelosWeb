@@ -1,16 +1,26 @@
 package br.com.isaiasdrocha.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Municipio {
+public class Municipio implements Serializable{
 	
-	/*********************************/
-	/************ ATRIBUTOS **********/
-	/*********************************/	
+	/*****************************************************************/
+	/*************************** ATRIBUTOS ***************************/
+	/*****************************************************************/
+	private static final long serialVersionUID = 2089776382005526578L;
+
+	@Id
+	@GeneratedValue
+	private long id;
+	
 	private Integer codigoMunicipal;
 	
 	private Integer codigoFederal;
@@ -71,6 +81,14 @@ public class Municipio {
 
 	public void setUf(UF uf) {
 		this.uf = uf;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

@@ -2,12 +2,10 @@ package br.com.isaiasdrocha.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
 import br.com.isaiasdrocha.model.Pessoa;
-import br.com.isaiasdrocha.util.HibernateUtil;
 
 @Component
 public class PessoaDAO {

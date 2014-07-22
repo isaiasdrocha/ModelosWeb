@@ -1,28 +1,34 @@
 package br.com.isaiasdrocha.util;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
 
-	public static final SessionFactory session = buildSession();
+	private static SessionFactory sessionFactory;
+    private static ServiceRegistry serviceRegistry;
 
-	private static SessionFactory buildSession() {
+    static
+    {
+        try
+        {
+            Configuration configuration = new Configuration().configure();
 
-		try {
-			Configuration cfg = new Configuration();
-			cfg.configure("hibernate.cfg.xml");
+            serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        }
+        catch (HibernateException he)
+        {
+            System.err.println("Error creating Session: " + he);
+            throw new ExceptionInInitializerError(he);
+        }
+    }
 
-			return cfg.buildSessionFactory();
-
-		} catch (Throwable b) {
-
-			System.out.println("Não deu \n" + b);
-			throw new ExceptionInInitializerError();
-		}
-	}
-
-	public static SessionFactory getSessionFactory() {
-		return session;
-	}
+    public static SessionFactory getSessionFactory()
+    {
+        return sessionFactory;
+    } 
 }

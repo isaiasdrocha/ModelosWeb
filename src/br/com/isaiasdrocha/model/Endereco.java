@@ -1,21 +1,32 @@
 package br.com.isaiasdrocha.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.com.isaiasdrocha.enums.EnumTipoEndereco;
 
 @Entity
-public class Endereco {
+public class Endereco implements Serializable{
 
-	/*********************************/
-	/************ ATRIBUTOS ***********/
-	/*********************************/	
+	/*****************************************************************/
+	/*************************** ATRIBUTOS ***************************/
+	/*****************************************************************/
+	private static final long serialVersionUID = -6836395102320157499L;
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "endereco_id")
+	private long id;
+	
 	private String logradouro;
 	
 	private Integer numero;
@@ -100,4 +111,13 @@ public class Endereco {
 	public void setNacionalidade(Nacionalidade nacionalidade) {
 		this.nacionalidade = nacionalidade;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 }
