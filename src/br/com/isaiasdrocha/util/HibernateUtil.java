@@ -1,34 +1,28 @@
 package br.com.isaiasdrocha.util;
 
-import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
 
-	private static SessionFactory sessionFactory;
-    private static ServiceRegistry serviceRegistry;
+	private static final SessionFactory sessionFactory;
+	static {
+		try {
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+			StandardServiceRegistryBuilder sb = new StandardServiceRegistryBuilder();
+			sb.applySettings(cfg.getProperties());
+			StandardServiceRegistry standardServiceRegistry = sb.build();
+			sessionFactory = cfg.buildSessionFactory(standardServiceRegistry);
+		} catch (Throwable th) {
+			System.err.println("Enitial SessionFactory creation failed" + th);
+			throw new ExceptionInInitializerError(th);
+		}
+	}
 
-    static
-    {
-        try
-        {
-            Configuration configuration = new Configuration().configure();
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
 
-            serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        }
-        catch (HibernateException he)
-        {
-            System.err.println("Error creating Session: " + he);
-            throw new ExceptionInInitializerError(he);
-        }
-    }
-
-    public static SessionFactory getSessionFactory()
-    {
-        return sessionFactory;
-    } 
 }
